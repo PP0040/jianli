@@ -197,21 +197,74 @@ body{
 }
 .toast.show{opacity:1;transform:translate(-50%,0);}
 
-/* 移动端 */
-@media(max-width:760px){
-  .stage{padding:76px 10px 110px;}
-  .resume{padding:26px 18px 40px;border-radius:16px;}
-  .head h1{font-size:25px;}
-  .head .ct{text-align:left;flex-direction:row;flex-wrap:wrap;gap:10px;}
-  .item-t{font-size:13.4px;line-height:1.9;}
-  .card{padding:15px 15px 13px;}
-  .chip{display:none;}
-  .acts{gap:4px;}
-  .btn{padding:5px 8px;font-size:11px;}
+/* ================= 专门为手机优化的样式 ================= */
+@media (max-width: 768px) {
+  /* 1. 顶栏改成两行，按钮自动换行不挤压 */
+  .topbar {
+    height: auto;
+    padding: 10px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .brand { font-size: 14px; margin-bottom: 4px; }
+  .acts {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .chip { display: none; } /* 隐藏“已查看”统计，省出空间 */
+  .btn {
+    padding: 5px 8px;
+    font-size: 11px;
+    border-radius: 8px;
+  }
+
+  /* 2. 整体内容区域避开顶栏 */
+  .stage { padding: 120px 10px 100px; }
+  .resume { padding: 24px 16px 40px; border-radius: 16px; }
+
+  /* 3. 简历头部信息改成上下堆叠 */
+  .head { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .head h1 { font-size: 24px; letter-spacing: 0.1em; }
+  .head .ct { 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    gap: 8px; 
+    text-align: left; 
+    font-size: 12px; 
+  }
+
+  /* 4. 公司、日期等信息改成上下堆叠，不再靠右 */
+  .org { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .org span { 
+    margin-left: 0; 
+    width: 100%; 
+    text-align: left; 
+    font-size: 12px;
+    color: var(--ink3);
+    margin-top: 2px;
+  }
+
+  /* 5. 句子块变小，点击区域更适合手指 */
+  .item { padding: 6px 10px; margin: 4px 0; }
+  .item-t { font-size: 13px; line-height: 1.8; }
+  .seg { padding: 2px 4px; margin: 0 -2px; }
+
+  /* 6. 展开的卡片内容缩小 */
+  .card { padding: 14px; border-radius: 12px; }
+  .card-h { margin-bottom: 10px; }
+  .sec-b h5 { font-size: 10.5px; margin-bottom: 6px; }
+  .sec-b p, .sec-b li { font-size: 12.5px; line-height: 1.75; }
+  .sec-b li { padding-left: 12px; margin-bottom: 6px; }
+  .sec-b li::before { top: 9px; }
+
+  /* 7. 弹窗适配 */
+  .modal { max-height: 85vh; padding: 16px; border-radius: 16px; }
+  .modal h3 { font-size: 16px; }
+  .modal p { font-size: 12px; }
+  .modal textarea { min-height: 380px; font-size: 11px; padding: 8px; }
 }
-</style>
-</head>
-<body>
 
 <header class="topbar">
   <div class="brand"><i></i>潘平 · 简历互动版</div>
